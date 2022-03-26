@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Jumper2D : MonoBehaviour
+public class Jumper : MonoBehaviour
 {
     [Header("Jump")] public float jumpForce;
 

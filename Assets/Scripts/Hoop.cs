@@ -6,16 +6,16 @@ using TMPro;
 public class Hoop : MonoBehaviour
 {
     public float speed;
-    Transform tr;
+   // Transform tr;
     public HoopsManager HM;
 
 
 
-    void Start()
+   /* void Start()
     {
-        tr = gameObject.GetComponent<Transform>() ;
+        //tr = gameObject.GetComponent<Transform>() ;
         
-    }
+    }*/
 
 
     void Update()
@@ -25,7 +25,7 @@ public class Hoop : MonoBehaviour
 
     private void Move()
     {
-        tr.position += tr.right * speed * Time.deltaTime  ;
+        transform.position += transform.right * speed * Time.deltaTime  ;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

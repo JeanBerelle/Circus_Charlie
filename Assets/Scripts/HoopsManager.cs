@@ -25,8 +25,8 @@ public class HoopsManager : MonoBehaviour
     void Start()
     {
         
-        StartCoroutine("SwapCoroutine");
-        StartCoroutine("SpawnerCoroutine");
+        StartCoroutine(SwapCoroutine());
+        StartCoroutine(SpawnerCoroutine());
         
 
     }
@@ -60,18 +60,22 @@ public class HoopsManager : MonoBehaviour
                     speedHoop = speedRight;
                     position = start_Position_Left.transform;
                 }
-            
-                for (int i = listHoops.Count - 1; i >= 0; i--)
+                for (int i = 0; i < listHoops.Count; i++)
                 {
                     if (listHoops[i] != null) listHoops[i].speed = speedHoop;
+                }
+                
+               /* for (int i = listHoops.Count - 1; i >= 0; i--)
+                {
+                     if (listHoops[i] != null) listHoops[i].speed = speedHoop;
                     
 
-                }
+                }*/
             }
            
 
         }
-        yield return null;
+        //yield return null;
     }
 
     private void Update()
@@ -79,6 +83,8 @@ public class HoopsManager : MonoBehaviour
         Debug.Log(listHoops.Count);
     }
 
+   
+    //Utiliser un Invoke
     IEnumerator SpawnerCoroutine()
     {
         float delay;
@@ -96,7 +102,7 @@ public class HoopsManager : MonoBehaviour
 
 
         }
-        yield return null;
+       // yield return null;
     }
 
     public void Reset()
@@ -105,10 +111,10 @@ public class HoopsManager : MonoBehaviour
         for (int i = listHoops.Count - 1 ; i >= 0; i--)
         {
             if (listHoops[i] != null) Destroy(listHoops[i].gameObject);
-            listHoops.RemoveAt(i);
-
+           // listHoops.RemoveAt(i);
         }
-      
+       
+        listHoops = new List<Hoop>();
         StartCoroutine("SwapCoroutine");
         StartCoroutine("SpawnerCoroutine");
     }
