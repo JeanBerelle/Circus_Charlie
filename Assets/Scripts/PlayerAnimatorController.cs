@@ -13,10 +13,23 @@ public class PlayerAnimatorController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         animator.SetBool("IsJumping", !jumper2D.isGrounded);
         animator.SetFloat("Speed", Mathf.Abs(rb2D.velocity.x));
+        
+    }
+
+    public void DeathAnimation(bool Isdead)
+    {
+        animator.SetBool("IsDead",Isdead);
+    }
+
+    public void VictoryAnimation()
+    {
+        animator.SetTrigger("Victory");
     }
 }
+
+

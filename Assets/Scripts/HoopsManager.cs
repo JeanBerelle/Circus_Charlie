@@ -65,26 +65,17 @@ public class HoopsManager : MonoBehaviour
                     if (listHoops[i] != null) listHoops[i].speed = speedHoop;
                 }
                 
-               /* for (int i = listHoops.Count - 1; i >= 0; i--)
-                {
-                     if (listHoops[i] != null) listHoops[i].speed = speedHoop;
-                    
-
-                }*/
+             
             }
            
 
         }
-        //yield return null;
+  
     }
 
-    private void Update()
-    {
-        Debug.Log(listHoops.Count);
-    }
+  
 
-   
-    //Utiliser un Invoke
+
     IEnumerator SpawnerCoroutine()
     {
         float delay;
@@ -97,26 +88,30 @@ public class HoopsManager : MonoBehaviour
             spawnedHoop = Instantiate(hoops, position.position, Quaternion.identity).GetComponent<Hoop>();
             listHoops.Add(spawnedHoop);
             spawnedHoop.speed = speedHoop;
-            spawnedHoop.HM = this;
+           
             
 
 
         }
-       // yield return null;
+       
     }
 
-    public void Reset()
+    public void Reset(bool restart)
     {
         StopAllCoroutines();
         for (int i = listHoops.Count - 1 ; i >= 0; i--)
         {
             if (listHoops[i] != null) Destroy(listHoops[i].gameObject);
-           // listHoops.RemoveAt(i);
+         
         }
        
         listHoops = new List<Hoop>();
-        StartCoroutine("SwapCoroutine");
-        StartCoroutine("SpawnerCoroutine");
+        if (restart )
+        {
+            StartCoroutine("SwapCoroutine");
+            StartCoroutine("SpawnerCoroutine");
+        }
+        
     }
 
 }

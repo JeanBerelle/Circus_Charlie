@@ -6,16 +6,18 @@ public class Jumper : MonoBehaviour
 
     [Header("Ground Detection")] [Range(0, 1)]
     public float groundCheckRadius;
+    private ScoreManager scoremanagerRef;
 
    
     public Transform feet;
-    [HideInInspector] public bool isGrounded;
+    public bool isGrounded;
 
     private Rigidbody2D rb2D;
 
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        scoremanagerRef = GetComponent<ScoreManager>();
     }
 
     public void Jump()
@@ -27,6 +29,22 @@ public class Jumper : MonoBehaviour
     private void Update()
     {
         var test = Physics2D.OverlapCircle(feet.position, groundCheckRadius);
-        isGrounded = test != null;
+        CheckGround();
+
+
+    }
+
+    private void CheckGround()
+    {
+        var test = Physics2D.OverlapCircle(feet.position, groundCheckRadius);
+   
+        if (test != null && test.gameObject.tag == "Ground")
+        {
+            if (!isGrounded) scoremanagerRef.IsOnGround();
+            isGrounded = true;
+
+        }
+        else isGrounded = false;
+   
     }
 }
