@@ -28,13 +28,13 @@ public class PlayerManager : MonoBehaviour
     }
     private void Start()
     {
-        UILife.text = life.ToString();
+        UILife.text = "LIFE : " + life.ToString();
         playerStart = transform.position;
     }
     public void TakeHit()
     {
         life--;
-        UILife.text = life.ToString();
+        UILife.text = "LIFE : " + life.ToString();
         animatorRef.DeathAnimation(true);
         isalive = false;
         FreezePlayer(true);

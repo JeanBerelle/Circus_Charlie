@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.Mathematics;
+
 
 public class ScoreManager : MonoBehaviour
 {
@@ -58,7 +58,7 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        UIscore.text = "Score" + score.ToString() + "\n" + Mathf.RoundToInt(bonusscore).ToString();
+        UIscore.text = "SCORE : " + score.ToString() + "\n" + "BONUS : " + Mathf.RoundToInt(bonusscore).ToString();
     }
 
     public void IsOnGround()

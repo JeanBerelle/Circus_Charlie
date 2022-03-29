@@ -40,7 +40,7 @@ public class HoopsManager : MonoBehaviour
 
         while (true)
         {
-            UITimer.text =  "Time before swap\n" + (Mathf.CeilToInt(swapDelay)).ToString();
+            UITimer.text =  "TIME BEFORE SWAP \n" + (Mathf.CeilToInt(swapDelay)).ToString();
             if (swapDelay > 0) 
             {
                 yield return new WaitForSeconds(0.1f);
