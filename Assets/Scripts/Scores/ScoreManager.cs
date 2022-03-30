@@ -52,6 +52,7 @@ public class ScoreManager : MonoBehaviour
         bonusscore = bonusscoremax;
         UpdateUI();
         StartCoroutine (BonusScoreLosing());
+        ShowVictoryScore(false);
         
 
     }
@@ -69,9 +70,9 @@ public class ScoreManager : MonoBehaviour
 
     public void ShowVictoryScore (bool show)
     {
-        score += Mathf.RoundToInt(bonusscore) ;
+       if (show ) score += Mathf.RoundToInt(bonusscore) ;
         UIfinalscore.gameObject.SetActive(show);
-        UIfinalscore.text = score.ToString();
+        UIfinalscore.text = "FINAL SCORE : " + score.ToString();
     }
 
     IEnumerator BonusScoreLosing ()

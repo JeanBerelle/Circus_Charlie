@@ -50,12 +50,14 @@ public class PlayerManager : MonoBehaviour
 
     private void Restart()
     {
+       
         transform.position = playerStart;
         FreezePlayer(false);
         animatorRef.DeathAnimation(false);
         isalive = true;
         hoopsmanagerRef.Reset(true);
         scoremanagerRef.Reset();
+
 
     }
 

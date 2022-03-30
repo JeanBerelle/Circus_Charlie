@@ -11,16 +11,7 @@ public class Podium : MonoBehaviour
    [SerializeField] private HoopsManager hoopmanagerRef;
    [SerializeField] private float snapdelay = 0.5f;
    [SerializeField] private float victorydelay = 8f;
-    void Start()
-    {
-        
-    }
 
- 
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

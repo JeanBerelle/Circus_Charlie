@@ -6,7 +6,7 @@ using TMPro;
 public class Hoop : MonoBehaviour
 {
     public float speed;
-    public Collision collisionRef;
+    
 
 
     void Update()

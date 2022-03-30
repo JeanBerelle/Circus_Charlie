@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-    
+   
+
    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "DeadZone") Destroy(gameObject);
+        
+        if (collision.tag == "DeadZone") Destroy(transform.parent.gameObject);
         else if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerManager>().TakeHit();
+           var playerRef =  collision.GetComponent<PlayerManager>();
+            if (playerRef.isalive) playerRef.TakeHit();
             
+           
         }
 
     }
